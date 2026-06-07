@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+/* --- DESIGN SYSTEM TOKENS --- */
+:root {
+  /* --- PALETA INSTITUCIONAL BASADA EN LA INSIGNIA --- */
+  
+  /* Azul Celeste (Color de marca principal y botones primarios) */
+  --primary: hsl(203, 85%, 45%);
+  --primary-hover: hsl(203, 85%, 38%);
+  --primary-light: hsl(203, 85%, 96%);
+
+  /* Rojo Institucional / Ribbon (Color secundario para destacar) */
+  --secondary: hsl(358, 85%, 48%);
+  --secondary-hover: hsl(358, 85%, 40%);
+  --secondary-light: hsl(358, 85%, 96%);
+
+  /* Oro/Dorado para detalles sutiles, bordes premium o advertencias */
+  --accent-gold: hsl(43, 75%, 50%);
+
+  /* Estado exitoso */
+  --success: hsl(142, 72%, 29%);
+  --success-light: hsl(142, 72%, 96%);
+
+  /* Azul Marino Oscuro para tipografía principal (legibilidad superior al negro puro) */
+  --text-dark: hsl(216, 50%, 15%);
+  --text-muted: hsl(216, 16%, 45%);
+  
+  /* Fondos limpios y profesionales */
+  --bg-light: hsl(210, 40%, 98%);
+  --bg-white: hsl(0, 0%, 100%);
+  
+  /* Glassmorphism & Borders */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- RESET & BASE STYLES --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for sticky header */
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(224, 20%, 80%);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* --- PREMIUM UTILITY CLASSES --- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card-primary {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(59, 158, 219, 0.15) !important;
+  border-top: 5px solid var(--primary) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: var(--transition-normal) !important;
+}
+.glass-card-primary:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(59, 158, 219, 0.12) !important;
+  border-color: rgba(59, 158, 219, 0.3) !important;
+}
+
+.glass-card-secondary {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(227, 26, 26, 0.15) !important;
+  border-top: 5px solid var(--secondary) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+  transition: var(--transition-normal) !important;
+}
+.glass-card-secondary:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(227, 26, 26, 0.12) !important;
+  border-color: rgba(227, 26, 26, 0.3) !important;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--bg-white);
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 158, 219, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--bg-white);
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 26, 26, 0.4);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover {
+  background-color: var(--primary);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 158, 219, 0.3);
+}
+
+/* Section Titles styling */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary) !important;
+  background-color: var(--primary-light) !important;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(59, 158, 219, 0.2);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(59, 158, 219, 0.06);
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 16px auto 0;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Customize Swiper pagination styling to match secondary color and enhance visibility */
+.swiper-pagination-bullet {
+  background: var(--bg-white) !important;
+  opacity: 0.75 !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 8px !important;
+  border: 2px solid rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.swiper-pagination-bullet:hover {
+  opacity: 1 !important;
+  transform: scale(1.2) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--secondary) !important;
+  opacity: 1 !important;
+  width: 32px !important;
+  border-radius: 6px !important;
+  border-color: transparent !important;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5) !important;
+}
+
+/* Customize Swiper navigation arrows */
+.custom-swiper-next,
+.custom-swiper-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: var(--bg-white) !important;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none;
+}
+
+.custom-swiper-prev {
+  left: 28px;
+}
+
+.custom-swiper-next {
+  right: 28px;
+}
+
+/* Hover effects */
+.custom-swiper-prev:hover,
+.custom-swiper-next:hover {
+  background: var(--secondary) !important;
+  border-color: var(--secondary) !important;
+  color: var(--bg-white) !important;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.45) !important;
+}
+
+.custom-swiper-prev:hover {
+  transform: translateY(-50%) translateX(-6px) scale(1.1) !important;
+}
+
+.custom-swiper-next:hover {
+  transform: translateY(-50%) translateX(6px) scale(1.1) !important;
+}
+
+/* Active press effects */
+.custom-swiper-prev:active,
+.custom-swiper-next:active {
+  transform: translateY(-50%) scale(0.92) !important;
+}
+
+/* Disabled state */
+.custom-swiper-prev.swiper-button-disabled,
+.custom-swiper-next.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hide navigation on small mobile screens for better mobile UX */
+@media (max-width: 640px) {
+  .custom-swiper-next,
+  .custom-swiper-prev {
+    display: none !important;
+  }
+}

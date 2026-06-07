@@ -1,0 +1,11 @@
+.footer-social-link:hover {
+  color: var(--secondary) !important;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+  footer .container {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}

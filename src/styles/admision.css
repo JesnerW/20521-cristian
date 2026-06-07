@@ -1,0 +1,22 @@
+.connector-line {
+  position: absolute;
+  top: 72px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent-gold) 100%);
+  z-index: 1;
+  opacity: 0.35;
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+  border-color: var(--primary) !important;
+}
+
+@media (max-width: 768px) {
+  .connector-line {
+    display: none !important;
+  }
+}

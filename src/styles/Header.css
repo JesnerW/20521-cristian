@@ -1,0 +1,13 @@
+.nav-link:hover {
+  color: var(--primary) !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .desktop-menu-nav {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+}

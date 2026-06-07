@@ -1,0 +1,29 @@
+.form-input:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px var(--primary-light) !important;
+}
+
+.contact-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.contact-card:hover .icon-wrapper {
+  transform: scale(1.1);
+}
+
+.whatsapp:hover {
+  background-color: hsl(142, 72%, 94%) !important;
+}
+
+.call:hover {
+  background-color: hsl(203, 85%, 92%) !important;
+}
+
+.email:hover {
+  background-color: hsl(358, 85%, 92%) !important;
+}
+
+.location:hover {
+  background-color: hsl(43, 75%, 92%) !important;
+}
